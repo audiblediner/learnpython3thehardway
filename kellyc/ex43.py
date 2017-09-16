@@ -1,13 +1,5 @@
 # Basic Object-Oriented Analysis and Design
 
-
-
-
-
-
-
-
-
 from sys import exit
 from random import randint
 from textwrap import dedent
@@ -23,7 +15,7 @@ class Scene(object):
 
 class Engine(object):
 
-    def __init(self, scene_map):
+    def __init__(self, scene_map):
         self.scene_map = scene_map
 
     def play(self):
@@ -34,9 +26,8 @@ class Engine(object):
             next_scene_name = current_scene.enter()
             current_scene = self.scene_map.next_scene(next_scene_name)
 
-            # be sure to print out the last scene
-            current_scene.enter()
-
+        # be sure to print out the last scene
+        current_scene.enter()
 
 
 
