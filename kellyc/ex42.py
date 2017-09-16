@@ -34,7 +34,7 @@ class Person(object):
         # tthis class has a name
         self.name = name
 
-        # Person has a pet and value until set otherwise is None
+        # Person has a pet and value is None
         self.pet = None
 
 # Employee is a class of Person
