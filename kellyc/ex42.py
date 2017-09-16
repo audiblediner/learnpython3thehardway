@@ -27,13 +27,6 @@ class Person(object):
         # this class has a name
         self.name = name
 
-# ?
-class Person(object):
-
-    def __init__(self, name):
-        # tthis class has a name
-        self.name = name
-
         # Person has a pet and value is None
         self.pet = None
 
@@ -51,7 +44,7 @@ class Fish(object):
     pass
 
 #  Salmon is a class of fish
-class Salmon(Fish):s
+class Salmon(Fish):
     pass
 
 # Halibut is a class of fish
@@ -71,7 +64,7 @@ mary = Person("Mary")
 frank = Person("Frank")
 
 # Mary has a pet Satan
-mary.pet = satan
+mary.pet = urchin
 
 # Frank is an instance of the class employee with number 120000
 frank = Employee("Frank", 120000)
