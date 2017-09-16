@@ -1,13 +1,5 @@
 # Basic Object-Oriented Analysis and Design
 
-
-
-
-
-
-
-
-
 from sys import exit
 from random import randint
 from textwrap import dedent
@@ -68,9 +60,9 @@ class CentralCorridor(Scene):
                       You're running away down the corridor to the Weapons 
                       Armory when a Gothon jumps out, red scaly skin, dark grimy
                       teeth, and evil clown costume flowing around his hate 
-                     filled body. He's blocking the door to the Armory and 
-                     about to pull a weapon to blast you.
-                     """))
+                      filled body. He's blocking the door to the Armory and
+                      about to pull a weapon to blast you.
+                      """))
         action = input(">> ")
         
         if action == "shoot!":
