@@ -1,5 +1,16 @@
+# from project folder run nosetests -v tests/ex47_tests.py
+
 from nose.tools import *
 from game import Room
+
+def setup():
+	print("SETUP!")
+
+def tear_down():
+	print("TEAR DOWN!")
+
+def test_basic():
+	print("I RAN!") # removed end='' parameter
 
 def test_room():
 	gold = Room("GoldRoom",

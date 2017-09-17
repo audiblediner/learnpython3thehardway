@@ -16,4 +16,8 @@ config = {
 	'name': 'projectname'
 }
 
+
+# call setup with all arguments of config as if they had been
+# passed as discrete arguments
+# http://grokbase.com/t/python/python-list/125w91kxhr/setup-config-rookie
 setup(**config)
