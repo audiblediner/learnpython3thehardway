@@ -1,5 +1,5 @@
 from nose.tools import *
-import name
+# import name
 
 def setup():
 	print("SETUP!")
@@ -8,4 +8,4 @@ def tear_down():
 	print("TEAR DOWN!")
 
 def test_basic():
-	print("I RAN!", end='')
+	print("I RAN!") # removed end='' parameter

@@ -4,9 +4,9 @@ except ImportError:
 	from distutils.core import setup
 
 config = {
-	'description': 'My Project',
-	'author': 'Kelly C.',
-	'url': 'URL to get at it.',
+	'description: 'My Project',
+	'author': 'Kelly C.'
+	'url': 'URL to get at it.'
 	'download_rul': 'Where to download it.',
 	'author_email': 'audiblediner@fastmail.fm',
 	'version': '0.1',
