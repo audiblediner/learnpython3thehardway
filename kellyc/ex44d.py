@@ -1,3 +1,7 @@
+# Inheritance Versus Composition
+# err, this returns AttributeError: 'Child' object has no attribute 'implicit'
+# moving on for now
+
 class Parent(object):
     
     def override(self):
@@ -12,10 +16,12 @@ class Parent(object):
 class Child(object):
     
     def override(self):
-        print("CHILD override()")
-        
+        print("CHILD override()")        
+     
     def altered(self):
         print("CHILD, BEFORE PARENT altered()")
+        # call super with argument Child and self, then 
+        # call the function altered on what's returned
         super(Child, self).altered()
         print("CHILD, AFTER PARENT altered()")
         
