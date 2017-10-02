@@ -1,4 +1,4 @@
-# # Python 2!!
+# Python 2!!
 
 from pycorpora import animals, objects
 import random
@@ -23,11 +23,12 @@ from pycorpora import humans, archetypes, mythology, geography, foods, technolog
 import random
 
 def a_tale():
-    return "After the {0} all we had to eat were cans of {1}.  Then the {2} came. I wish we had never moved to {3}. I blame it on {4}.".format(
+    return "After the {0} all we had to eat were cans of {1}.  Then the {2} came. I wish we had never moved to {3}, {4}. I blame it on {5}.".format(
         random.choice(archetypes.event["events"])["name"],
         random.choice(foods.menuItems["menuItems"]),
         random.choice(mythology.lovecraft["deities"]),
         random.choice(geography.us_cities["cities"])["city"],
+        random.choice(geography.us_cities["cities"])[ "state"],
         random.choice(technology.new_technologies["technologies"])
         )
 
@@ -53,17 +54,17 @@ random_colors = random.sample(
 for pair in zip(random_colors, random_flowers):
     print (" ".join(pair).title())
 
-# # outputs (e.g.):
-# #   Maroon Bergamot
-# #   Blue Bell Zinnia
-# #   Pink Flamingo Camellias
-# #   Tickle Me Pink Begonia
-# #   Burnt Orange Clover
-# #   Fuzzy Wuzzy Hibiscus
-# #   Outer Space Forget Me Not
-# #   Almond Petunia
-# #   Pine Green Ladys Slipper
-# #   Shadow Jasmine
+# outputs (e.g.):
+#   Maroon Bergamot
+#   Blue Bell Zinnia
+#   Pink Flamingo Camellias
+#   Tickle Me Pink Begonia
+#   Burnt Orange Clover
+#   Fuzzy Wuzzy Hibiscus
+#   Outer Space Forget Me Not
+#   Almond Petunia
+#   Pine Green Ladys Slipper
+#   Shadow Jasmine
 
 from pycorpora import humans, geography
 import random
@@ -72,8 +73,7 @@ def a_biography():
     return "{0} is a(n) {1} who lives in {2}.".format(
         random.choice(humans.firstNames["firstNames"]),
         random.choice(humans.occupations["occupations"]),
-        random.choice(geography.us_cities["cities"])["city"]
-)
+        random.choice(geography.us_cities["cities"])["city"])
 
 for i in range(5):
-    print a_biography()=
+    print a_biography()
