@@ -7,6 +7,7 @@ def test_room():
 	gold = Room("GoldRoom",
 		"""This room has gold in it you can grab.
 		There's a door to the north.""")
+	# assert equal assures that variables are the same
 	assert_equal(gold.name, "GoldRoom")
 	assert_equal(gold.paths, {})
 
