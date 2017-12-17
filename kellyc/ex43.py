@@ -4,18 +4,22 @@ from sys import exit
 from random import randint
 from textwrap import dedent
 
-
 class Scene(object):
-
+    # define function enter with parameter self
+    # self represents the instance of the object itself. other oop langswill pass this as a hidden parameter to methods defined on an object, but with Python it must by declared explicitly
+    # self are instance variables for your class
     def enter(self):
         print("This scene is not yet configured.")
         print("Subclass it and implement enter().")
+        # exit is a helper for the interactive shell (sys.exit is similar but for use in programs)
         exit(1)
 
-
 class Engine(object):
-
+    # in order to access object attributes from within the __init__ method, we need a reference to the object
     def __init__(self, scene_map):
+        # function vs method: methods are like functions that are attributes of a class or an instance of a class -- methods are able to operate on data contained within the class (object being an instance of class)
+        # methods can be bound or unbound
+        # Whenever method is called, reference to main object is passed as first argument. Conventionally, this first argument is always called to your methods self
         self.scene_map = scene_map
 
     def play(self):
@@ -29,10 +33,8 @@ class Engine(object):
         # be sure to print out the last scene
         current_scene.enter()
 
-
-
 class Death(Scene):
-    
+
     quips = [
             "You died. You kinda suck at this.",
             "Your mom would be proud... if she were smarter.",
@@ -43,68 +45,66 @@ class Death(Scene):
 
     def enter(self):
         print(Death.quips[randint(0, len(self.quips)-1)])
-        exit(1)        
-
+        exit(1)
 
 class CentralCorridor(Scene):
 
     def enter(self):
         print(dedent("""
                       The Gothons of Planet Percal have invaded your ship and
-                      destroyed your entire crew. YOu are the last surviving 
+                      destroyed your entire crew. YOu are the last surviving
                       member and your last mission is to get the neutron destruct
-                      bomb from the Weapons Armory, put it in the bridge, and 
+                      bomb from the Weapons Armory, put it in the bridge, and
                       blow the ship up after getting into an escape pod.
-                      
-                      You're running away down the corridor to the Weapons 
+
+                      You're running away down the corridor to the Weapons
                       Armory when a Gothon jumps out, red scaly skin, dark grimy
-                      teeth, and evil clown costume flowing around his hate 
+                      teeth, and evil clown costume flowing around his hate
                       filled body. He's blocking the door to the Armory and
                       about to pull a weapon to blast you.
                       """))
         action = input(">> ")
-        
+
         if action == "shoot!":
             print(dedent("""
                           Quick on the draw you yank out your blaster and fire
-                          it at the Gothon. His clown costume is flowing and 
-                          moving around his body, which throws off your aim. 
-                          Your laser hits his costume but misses him entirely. 
+                          it at the Gothon. His clown costume is flowing and
+                          moving around his body, which throws off your aim.
+                          Your laser hits his costume but misses him entirely.
                           This completely ruins his brand new costume his mother
-                          bought him, which makes him fly into an insane rage 
-                          and blast you repeatedly in the face until you are 
+                          bought him, which makes him fly into an insane rage
+                          and blast you repeatedly in the face until you are
                           dead. Then he eats you.
                           """))
             return 'death'
-        
+
         elif action == "dodge!":
             print(dedent("""
-                          Like a world class boxer you dodge, weave, slip and 
+                          Like a world class boxer you dodge, weave, slip and
                           slide right as the Gothon's blaster cranks a laser
                           past your head. In the middle of your artful dodge
-                          your foot slips and you bang your head on the metal 
-                          wall and pass out. You wake up shortly after only to 
+                          your foot slips and you bang your head on the metal
+                          wall and pass out. You wake up shortly after only to
                           die as the Gothon stomps on your head and eats you.
                           """))
             return 'death'
-        
+
         elif action == "tell a joke":
             print(dedent("""
-                          Lucky for you they made you learn Gothon insults in 
-                          the academy.  You tell the one Gothon joke you know: 
+                          Lucky for you they made you learn Gothon insults in
+                          the academy.  You tell the one Gothon joke you know:
                           Lbhe zbgure vf fb sng, jura fur fvgf nebhaq gur ubhfr,
-                          fur fvgf nebhaq gur ubhfr.  The Gothon stops, tries 
-                          not to laugh, then busts out laughing and can't move. 
-                          While he's laughing you run up and shoot him square in 
-                          the head putting him down, then jump through 
+                          fur fvgf nebhaq gur ubhfr.  The Gothon stops, tries
+                          not to laugh, then busts out laughing and can't move.
+                          While he's laughing you run up and shoot him square
+                          in the head putting him down, then jump through
                           the Weapon Armory door.
                           """))
             return 'laser_weapon_armory'
         else:
-            
+
             print("DOES NOT COMPUTE!")
-            return 'central_corridor' 
-    
+            return 'central_corridor'
 
 class LaserWeaponArmory(Scene):
 
@@ -145,8 +145,6 @@ class LaserWeaponArmory(Scene):
                   Gothons blow up the ship from their ship and you die.
                   """))
             return 'death'
-
-
 
 class TheBridge(Scene):
 
@@ -235,7 +233,7 @@ class Finished(Scene):
         return 'finished'
 
 
-# This creates the Map class and stores each scene by name in the scenes 
+# This creates the Map class and stores each scene by name in the scenes
 # dict, and then that dict is referred to with Map.scenes
 class Map(object):
 
@@ -262,4 +260,3 @@ class Map(object):
 a_map = Map('central_corridor')
 a_game = Engine(a_map)
 a_game.play()
-
